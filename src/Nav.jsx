@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
@@ -10,6 +9,7 @@ const Nav = () => {
           <NavLink to="/battery">Battery</NavLink>
           <NavLink to="/audio">Audio</NavLink>
           <NavLink to="/vibration">Vibration</NavLink>
+          <NavLink to="/rotation">Rotation</NavLink>
         </li>
       </ul>
     </nav>
