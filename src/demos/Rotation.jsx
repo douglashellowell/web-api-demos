@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const SpookySquare = ({ num: largeness, rotation }) => {
-  return largeness === 0 ? (
+  return largeness <= 0 ? (
     <p>{rotation} degrees!</p>
   ) : (
     <div
@@ -36,7 +36,7 @@ const Rotation = () => {
     };
   }, []);
 
-  return <SpookySquare num={largenessPercent} />;
+  return <SpookySquare largeness={largenessPercent} />;
 };
 
 export default Rotation;
