@@ -51,7 +51,11 @@ const Vibration = () => {
   return (
     <div>
       {patterns.map((pattern, index) => (
-        <VibrateButton key={index} pattern={pattern.pattern} />
+        <VibrateButton
+          key={index}
+          pattern={pattern.pattern}
+          label={pattern.name}
+        />
       ))}
     </div>
   );
