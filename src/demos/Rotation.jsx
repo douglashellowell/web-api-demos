@@ -13,7 +13,7 @@ const Rotation = () => {
     );
 
     return () => {
-      rotationListener.remove();
+      screen.orientation.removeEventListener('change', rotationListener);
     };
   });
 
