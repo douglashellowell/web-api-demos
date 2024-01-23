@@ -1,7 +1,30 @@
 import { useEffect, useState } from 'react';
 
+const SpookySquare = ({ num: largeness, rotation }) => {
+  return largeness === 0 ? (
+    <p>{rotation} degrees!</p>
+  ) : (
+    <div
+      style={{
+        height: `${largeness}vh`,
+        width: `${largeness}vw`,
+        background: `hsl(${largeness}deg 80% 60%)`,
+        transform: `rotate(${rotation}deg)`,
+        transition: `transform ${largeness / 100}s ease-in-out`,
+      }}
+      className="spooky-square"
+    >
+      <SpookySquare num={largeness - 10} />
+    </div>
+  );
+};
+
 const Rotation = () => {
   const [rotation, setRotation] = useState(screen.orientation.angle);
+
+  console.log(rotation);
+
+  const largenessPercent = 100;
 
   useEffect(() => {
     const rotationUpdater = setTimeout(() => {
@@ -13,7 +36,7 @@ const Rotation = () => {
     };
   }, []);
 
-  return <div style={{ transform: `rotate:${rotation}deg` }}>{rotation}</div>;
+  return <SpookySquare num={largenessPercent} />;
 };
 
 export default Rotation;
