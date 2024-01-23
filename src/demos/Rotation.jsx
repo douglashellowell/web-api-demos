@@ -11,7 +11,7 @@ const Rotation = () => {
     return () => {
       clearTimeout(rotationUpdater);
     };
-  });
+  }, []);
 
   return <div style={{ transform: `rotate:${rotation}deg` }}>{rotation}</div>;
 };
