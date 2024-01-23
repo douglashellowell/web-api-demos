@@ -4,16 +4,12 @@ const Rotation = () => {
   const [rotation, setRotation] = useState(screen.orientation.angle);
 
   useEffect(() => {
-    const rotationListener = screen.orientation.addEventListener(
-      'change',
-      (event) => {
-        console.log('orientation changed', event.target);
-        setRotation(event.target.angle);
-      }
-    );
+    const rotationUpdater = setTimeout(() => {
+      setRotation(screen.orientation.angle);
+    }, 100);
 
     return () => {
-      screen.orientation.removeEventListener('change', rotationListener);
+      clearTimeout(rotationUpdater);
     };
   });
 
